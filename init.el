@@ -182,4 +182,7 @@
 
        :my-editor
        clipboard
+
+       :my-completion
+       vertico
        )
