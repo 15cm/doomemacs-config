@@ -185,4 +185,5 @@
 
        :my-completion
        vertico
+       company
        )
