@@ -42,4 +42,5 @@
  "<prior>" #'vertico-scroll-down
  "C-l" #'vertico-directory-up
  "C-p" #'previous-history-element
- "C-n" #'next-history-element)
+ "C-n" #'next-history-element
+ "C-k" 'kill-line)

@@ -4,6 +4,7 @@
   :init
   (setq select-enable-clipboard nil)
   :config
+  (simpleclip-mode 1)
   (when (executable-find "copyq")
     (setq simpleclip-custom-content-provider "copyq clipboard")))
 

@@ -10,6 +10,8 @@
            (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal))
            )
 
+(setq doom-localleader-key ",")
+
 (use-package! color-theme-sanityinc-tomorrow
               :config (setq doom-theme 'sanityinc-tomorrow-night))
 
