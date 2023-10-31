@@ -19,7 +19,8 @@
               :i "C-k" 'kill-line)
 
       :leader
-      :desc "misc" "<SPC>" my-misc-map
+      :desc "misc" doom-leader-key my-misc-map
+      :desc "Find file in project" "." #'projectile-find-file
       )
 
 (use-package! rainbow-mode

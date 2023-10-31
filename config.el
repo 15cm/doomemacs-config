@@ -12,7 +12,6 @@
 (use-package! color-theme-sanityinc-tomorrow
               :config (setq doom-theme 'sanityinc-tomorrow-night))
 
-
 (setq display-line-numbers-type 'relative)
 
 (setq org-directory "~/org/")
