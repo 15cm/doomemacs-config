@@ -7,11 +7,7 @@
 (add-hook! 'after-setting-font-hook
            (set-fontset-font t 'han (font-spec :family "Sarasa Mono SC" :size 16 :weight 'normal))
            (set-fontset-font t 'han (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal) nil 'append)
-           (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal))
-           )
-
-(setq evil-snipe-override-evil-repeat-keys nil)
-(setq doom-localleader-key ",")
+           (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal)))
 
 (use-package! color-theme-sanityinc-tomorrow
               :config (setq doom-theme 'sanityinc-tomorrow-night))

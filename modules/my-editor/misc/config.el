@@ -5,16 +5,15 @@
 
 (map! "C-s" #'save-buffer
       :i "M-." #'hippie-expand
-      :nmiev :desc "Indent" [tab] #'indent-for-tab-command
+      :nmiev [tab] #'indent-for-tab-command
       (:after evil
               (:map evil-surround-mode-map
                     :v "s" #'evil-substitute
                     :v "S" #'evil-surround-region))
 
       (:after evil-integration
-              :nv "t" 'evil-avy-goto-char-in-line
-              :nv "T" 'evil-avy-goto-symbol-1)
-
+              :nvm "t" 'evil-avy-goto-char-in-line
+              :nvm "T" 'evil-avy-goto-symbol-1)
 
       (:after comint
               :i "C-k" 'kill-line)
@@ -31,6 +30,12 @@
 (use-package! beacon
               :config
               (beacon-mode 1))
+
+(require 'evil-mc)
+(global-evil-mc-mode 1)
+(map! :map evil-mc-key-map
+ :nvm "C-n" 'evil-mc-make-and-goto-next-match
+ :nvm "C-p" 'evil-mc-make-and-goto-prev-match)
 
 (map!
  :leader
