@@ -10,6 +10,7 @@
            (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal))
            )
 
+(setq evil-snipe-override-evil-repeat-keys nil)
 (setq doom-localleader-key ",")
 
 (use-package! color-theme-sanityinc-tomorrow
