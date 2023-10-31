@@ -19,7 +19,7 @@
               :i "C-k" 'kill-line)
 
       :leader
-      :desc "misc" "m" my-misc-map
+      :desc "misc" "<SPC>" my-misc-map
       )
 
 (use-package! rainbow-mode
@@ -37,9 +37,10 @@
  :nvm "C-n" 'evil-mc-make-and-goto-next-match
  :nvm "C-p" 'evil-mc-make-and-goto-prev-match)
 
+(which-key-add-key-based-replacements (concat "<SPC>" " TAB") "Eval expression")
 (map!
  :leader
- :desc "Eval expression" [tab] #'eval-expression
+ [tab] #'eval-expression
  :desc "Layout & workspace" "l" doom-leader-workspace-map)
 
 (map! :map doom-leader-workspace-map
