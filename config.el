@@ -11,6 +11,9 @@
 
 (use-package! color-theme-sanityinc-tomorrow
               :config (setq doom-theme 'sanityinc-tomorrow-night))
+(let ((theme-conf-file "~/.config/emacs/scripts/load-theme.el"))
+      (when (file-exists-p theme-conf-file)
+        (load-file theme-conf-file)))
 
 (setq display-line-numbers-type 'relative)
 
