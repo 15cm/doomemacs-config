@@ -192,10 +192,14 @@
        vertico
        company
 
+       :my-tools
+       lsp
+
        :my-checkers
        syntax
 
        :my-lang
        nix
        (org +roam)
+       (cc +lsp)
        )
