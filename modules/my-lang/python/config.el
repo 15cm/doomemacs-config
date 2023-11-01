@@ -2,6 +2,6 @@
   (use-package! lsp-pyright
     :after python
     :config
-    (add-hook 'python-mode-local-vars-hook #'lsp! 'append)
+    (add-hook 'python-mode-hook #'lsp! 'append)
     (my-common-lsp-mode-map! (python-mode-map))
     ))

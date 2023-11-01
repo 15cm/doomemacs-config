@@ -4,6 +4,6 @@
   :mode ("\\.rs$" . rust-mode)
   :config
   (when (modulep! +lsp)
-    (add-hook 'rust-mode-local-vars-hook #'lsp! 'append)
+    (add-hook 'rust-mode-hook #'lsp! 'append)
     (my-common-lsp-mode-map! (rust-mode-map)))
   )

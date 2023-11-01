@@ -3,9 +3,9 @@
 (use-package! cc-mode
   :config
   (when (modulep! +lsp)
-    (add-hook! '(c-mode-local-vars-hook
-                 c++-mode-local-vars-hook
-                 cmake-mode-local-vars-hook)
+    (add-hook! '(c-mode-hook
+                 c++-mode-hook
+                 cmake-mode-hook)
                :append #'lsp!)
 
     (defun my-lsp-clangd-find-other-file ()

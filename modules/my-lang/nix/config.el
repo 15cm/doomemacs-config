@@ -10,7 +10,7 @@
                        'js-mode)))
   :config
   (if (modulep! +lsp)
-    (add-hook 'nix-mode-local-vars-hook #'lsp! 'append)
+      (add-hook 'nix-mode-hook #'lsp! 'append)
     (set-company-backend! 'nix-mode 'company-dabbrev))
   (map! :localleader
         :map nix-mode-map
