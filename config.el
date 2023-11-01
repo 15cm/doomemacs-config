@@ -15,6 +15,7 @@
   (set-fontset-font t 'han (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal) nil 'append)
   (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal)))
 
+(use-package! solarized-theme)
 (use-package! color-theme-sanityinc-tomorrow
   :config (setq doom-theme 'sanityinc-tomorrow-night))
 (let ((theme-conf-file "~/.config/emacs-scripts/load-theme.el"))
