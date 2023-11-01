@@ -206,4 +206,5 @@
        (org +roam)
        (cc +lsp)
        (python +lsp)
+       (rust +lsp)
        )
