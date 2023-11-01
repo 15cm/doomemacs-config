@@ -41,7 +41,6 @@
 (which-key-add-key-based-replacements (concat "<SPC>" " TAB") "Eval expression")
 (map!
  :leader
- :after evil-binding
  [tab] #'eval-expression
  :desc "Layout & workspace" "l" doom-leader-workspace-map)
 
