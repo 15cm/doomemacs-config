@@ -197,4 +197,5 @@
 
        :my-lang
        nix
+       (org +roam)
        )
