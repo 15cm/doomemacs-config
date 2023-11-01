@@ -198,8 +198,12 @@
        :my-checkers
        syntax
 
+       :my-formatter
+       apheleia
+
        :my-lang
        nix
        (org +roam)
        (cc +lsp)
+       (python +lsp)
        )

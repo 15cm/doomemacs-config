@@ -10,4 +10,7 @@
          (:prefix ("g" . "goto")
                "d" #'lsp-find-definition
                "D" #'my-lsp-find-definition-other-window
-               "r" #'lsp-find-references)))
+               "r" #'lsp-find-references)
+         (:prefix ("f" . "format")
+                   "f" #'lsp-format-buffer
+                   "F" #'lsp-format-region)))
