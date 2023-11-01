@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(add-load-path! "lisp")
+
 (setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16 :weight 'normal)
       doom-emoji-font (font-spec :family "Noto Color Emoji"))
 

@@ -47,3 +47,5 @@
 (map! :map doom-leader-workspace-map
       "l" #'+workspace/switch-to
       "L" #'+workspace/load)
+
+(map! :leader "v" #'er/expand-region)
