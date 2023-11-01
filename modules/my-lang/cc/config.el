@@ -17,4 +17,5 @@
           (:prefix ("g" . "goto")
                    "a" #'lsp-clangd-find-other-file
                    "A" #'my-lsp-clangd-find-other-file))
-    ))
+    )
+  (add-hook! (c-mode-hook c++-mode-hook) (setq-local c-basic-offset 2)))

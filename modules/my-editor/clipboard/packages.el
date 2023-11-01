@@ -1,2 +1,4 @@
-;;; editor/clipboard/package.el -*- lexical-binding: t; -*-
+;; -*- no-byte-compile: t; -*-
+;;; my-editor/clipboard/package.el
+
 (package! simpleclip)
