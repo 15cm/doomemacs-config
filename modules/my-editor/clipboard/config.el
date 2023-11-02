@@ -5,8 +5,10 @@
   (setq select-enable-clipboard nil)
   :config
   (simpleclip-mode 1)
-  (when (executable-find "copyq")
-    (setq simpleclip-custom-content-provider "copyq clipboard")))
+  (setq simpleclip-custom-content-provider (cond (IS-MAC "pbpaste")
+                                                 ((executable-find "wl-paste") "wl-paste")
+                                                 ((executable-find "xclip") "xclip -o -sel clip")
+                                                 )))
 
 (defun my-copy-kill-ring-to-clipboard()
   "Copy the first item of kill ring to clipboard"
