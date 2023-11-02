@@ -5,15 +5,19 @@
 
 (my-init-load-path)
 
-(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16 :weight 'normal)
+(setq my-font-size 16)
+
+(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size my-font-size :weight 'normal)
       doom-emoji-font (font-spec :family "Noto Color Emoji"))
 
 (setq nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf"))
 
 (add-hook! 'after-setting-font-hook
-  (set-fontset-font t 'han (font-spec :family "Sarasa Mono SC" :size 16 :weight 'normal))
-  (set-fontset-font t 'han (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal) nil 'append)
-  (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size 16 :weight 'normal)))
+  (set-fontset-font t 'han (font-spec :family "Sarasa Mono SC" :size my-font-size :weight 'normal))
+  (set-fontset-font t 'han (font-spec :family "Sarasa Mono J" :size my-font-size :weight 'normal) nil 'append)
+  (set-fontset-font t 'cjk-misc (font-spec :family "Sarasa Mono SC" :size my-font-size :weight 'normal))
+  (set-fontset-font t 'cjk-misc (font-spec :family "Sarasa Mono J" :size my-font-size :weight 'normal) nil 'append)
+  (set-fontset-font t 'kana (font-spec :family "Sarasa Mono J" :size my-font-size :weight 'normal)))
 
 (use-package! solarized-theme)
 (use-package! color-theme-sanityinc-tomorrow
