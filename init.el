@@ -1,6 +1,8 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (setq doom-localleader-key ",")
+(setq doom-leader-alt-key "M-m")
+(setq doom-localleader-alt-key "M-,")
 
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
