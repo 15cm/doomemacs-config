@@ -1,8 +1,16 @@
 (defvar my-misc-map (make-sparse-keymap) "My misc key map")
 
+(defun my-kill-special-windows ()
+  "Kill all windows displaying a buffer in `compilation-minor-mode'."
+  (interactive)
+  (dolist (win (window-list))
+    (when (string-prefix-p "*" (buffer-name (window-buffer win)))
+      (delete-window win))))
+
 (define-key! my-misc-map
   "l" #'revert-buffer-quick
-  "s" #'save-some-buffers)
+  "s" #'save-some-buffers
+  "q" #'my-kill-special-windows)
 
 (map! "C-s" #'save-buffer
       :i "M-." #'hippie-expand
