@@ -196,6 +196,7 @@
 
        :my-tools
        lsp
+       magit
 
        :my-checkers
        syntax
