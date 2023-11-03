@@ -1,7 +1,8 @@
 (defvar my-misc-map (make-sparse-keymap) "My misc key map")
 
 (define-key! my-misc-map
-  "l" #'revert-buffer-quick)
+  "l" #'revert-buffer-quick
+  "s" #'save-some-buffers)
 
 (map! "C-s" #'save-buffer
       :i "M-." #'hippie-expand
