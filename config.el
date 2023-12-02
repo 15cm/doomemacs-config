@@ -41,3 +41,5 @@
 
 (setq org-directory "~/org/")
 
+(after! persp-mode
+  (setq persp-emacsclient-init-frame-behaviour-override "main"))
