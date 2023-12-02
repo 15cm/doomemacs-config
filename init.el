@@ -164,7 +164,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       ;;yaml              ; JSON, but readable
+       ;; yaml              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
@@ -210,4 +210,5 @@
        (cc +lsp)
        (python +lsp)
        (rust +lsp)
+       yaml
        )
