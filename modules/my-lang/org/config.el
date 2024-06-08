@@ -9,3 +9,6 @@
   (setq my-org-blog-post-project-root (expand-file-name "~/tech/15cm-site/blog"))
   (map! :localleader :map org-mode-map ">" #'my-org-blog-post-buffer)
   )
+
+(after! (org-cliplink)
+  (setq org-cliplink-simpleclip-source t))
