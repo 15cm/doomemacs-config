@@ -96,7 +96,7 @@
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter       ; syntax and parsing, sitting in a tree...
        ;;upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -207,8 +207,8 @@
        :my-lang
        nix
        (org +roam)
-       (cc +lsp)
-       (python +lsp)
-       (rust +lsp)
+       (cc +lsp +tree-sitter)
+       (python +lsp +tree-sitter)
+       (rust +lsp +tree-sitter)
        yaml
        )

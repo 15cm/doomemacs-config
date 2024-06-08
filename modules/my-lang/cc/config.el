@@ -18,4 +18,9 @@
                    "a" #'lsp-clangd-find-other-file
                    "A" #'my-lsp-clangd-find-other-file))
     )
+
+  (when (modulep! +tree-sitter)
+    (add-hook! '(c-mode-local-vars-hook
+                 c++-mode-local-vars-hook)
+               :append #'tree-sitter!))
   (add-hook! (c-mode-hook c++-mode-hook) (setq-local c-basic-offset 2)))

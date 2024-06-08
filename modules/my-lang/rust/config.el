@@ -6,4 +6,6 @@
   (when (modulep! +lsp)
     (add-hook 'rust-mode-hook #'lsp! 'append)
     (my-common-lsp-mode-map! (rust-mode-map)))
+  (when (modulep! +tree-sitter)
+    (add-hook 'rustic-mode-local-vars-hook #'tree-sitter! 'append))
   )

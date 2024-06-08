@@ -33,5 +33,9 @@
                    "s" #'python-shell-send-statement))
     ))
 
+(when (modulep! +tree-sitter)
+  (add-hook 'python-mode-local-vars-hook #'tree-sitter! 'append))
+
+
 (setq python-shell-interpreter "pdm")
 (setq python-shell-interpreter-args "run python")
