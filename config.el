@@ -34,10 +34,15 @@
   (doom/reload)
   )
 
+;; Force general to auto-unbind keys rather than throw Key sequence ... starts with non-prefix key ... errors
+(general-auto-unbind-keys)
+
 (map! :leader
       "C-r" #'my-doom-reload)
 
 (setq display-line-numbers-type 'relative)
+
+(after! which-key (setq which-key-idle-delay 0.5))
 
 (setq org-directory "~/org/")
 
