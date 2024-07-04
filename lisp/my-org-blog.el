@@ -56,24 +56,24 @@
   (shell-command-on-region (point-min) (point-max) "pandoc -f org -t markdown-fenced_code_attributes --markdown-headings=atx" buf))
 
 (defun my-org-blog--process-md-output (title published-at updated-at tags)
-    "The current buffer should be the output md buffer"
-    ;; Add front matters
-    (goto-char (point-min))
-    (insert (format "---
+  "The current buffer should be the output md buffer"
+  ;; Add front matters
+  (goto-char (point-min))
+  (insert (format "---
 layout: post
 title: %s
 date: %s
 updated: %s
 " title published-at updated-at))
-    (when tags (insert (format "tags:
-%s" (string-join (--map (concat "- " it) tags) "\n"))))
-    (insert "\n---\n\n")
-    ;; Add read more.
-    (re-search-forward "^#")
-    (beginning-of-line)
-    (insert "<!-- more -->\n")
-    ;; Drop the file:// added by pandoc
-    (replace-regexp-in-region "\\](file://" "](" (point-min)))
+  (when tags (insert (format "tags:
+%s" (string-join (--map (concat "  - " it) tags) "\n"))))
+  (insert "\n---\n\n")
+  ;; Add read more.
+  (re-search-forward "^#")
+  (beginning-of-line)
+  (insert "<!-- more -->\n")
+  ;; Drop the file:// added by pandoc
+  (replace-regexp-in-region "\\](file://" "](" (point-min)))
 
 ;; Candidate as a replacement for `kill-buffer', at least when used interactively.
 ;; For example: (define-key global-map [remap kill-buffer] 'kill-buffer-and-its-windows)
@@ -114,7 +114,7 @@ If untouch-updated-at is not nil, change the udpated_at keyword to now."
          (published_at (if-let ((val (car (alist-get "PUBLISHED_AT" keywords nil nil #'equal))))
                            val now))
          (updated_at (if-let ((val (car (alist-get "UPDATED_AT" keywords nil nil #'equal)))
-                               (skip skip-modify-updated-at))
+                              (skip skip-modify-updated-at))
                          val now))
          (attach-dir (org-attach-dir))
          (data-root (f-join (file-truename org-roam-directory) "data"))
