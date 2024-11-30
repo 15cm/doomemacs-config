@@ -25,6 +25,7 @@
     :config
     (add-hook 'python-mode-hook #'lsp! 'append)
     (my-common-lsp-mode-map! (python-mode-map))
+    (setq lsp-enable-file-watchers nil)
     (map! :localleader :map (python-mode-map)
           "'" #'my-python-start-or-switch-repl
           (:prefix ("s" . "send")
