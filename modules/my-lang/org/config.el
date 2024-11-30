@@ -1,7 +1,22 @@
 (when (modulep! +roam)
   (after! (org-roam org)
-    (setq org-roam-directory org-directory)))
+    (setq org-roam-directory org-directory)
+    ;; Pin the org attach dir to file level id to avoid org looking into header
+    ;; level id
+    ;; https://emacs.stackexchange.com/questions/69862/how-to-enable-org-mode-to-search-attachment-in-parent-headers-attachment-folder
+    (setq org-roam-capture-templates
+          '(("d" "default" plain
+             "%?"
+             :if-new (file+head "${slug}.org"
+                                ":PROPERTIES:
+:DIR:      %(replace-regexp-in-string (expand-file-name org-directory) \"\" (org-attach-dir-from-id (org-roam-node-id org-roam-capture--node)))
+:END:
+#+title: ${title}\n")
+             :immediate-finish t
+             :unnarrowed t)))
+    ))
 
+;; :DIR:      %(replace-regexp-in-string (expand-file-name org-directory) "" (org-attach-dir-from-id (org-roam-node-id org-roam-capture--node)))
 (use-package! my-org-blog
   :defer t
   :commands (my-org-blog-post-buffer)
@@ -9,6 +24,8 @@
   (setq my-org-blog-post-project-root (expand-file-name "~/tech/15cm-site/blog"))
   (map! :after org :map org-mode-map :localleader ">" #'my-org-blog-post-buffer)
   )
+
+(use-package! org-download)
 
 ;; unmap all existing "r kbd".
 (after! org
