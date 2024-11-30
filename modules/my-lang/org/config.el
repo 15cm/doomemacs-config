@@ -14,7 +14,8 @@
 (after! org
   (let ((prefix "r"))
     (dolist (key (mapcar #'string (number-sequence 32 126)))
-      (map! :map org-mode-map :localleader :prefix prefix key nil))))
+      (map! :map org-mode-map :localleader :prefix prefix key nil)))
+  (setq org-attach-id-dir "data/"))
 
 (map! :after (org org-roam)
       :map org-mode-map
