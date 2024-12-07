@@ -7,7 +7,7 @@
     (setq org-roam-capture-templates
           '(("d" "default" plain
              "%?"
-             :if-new (file+head "${slug}.org"
+             :if-new (file+head "${slug}-%<%Y%m%d%H%M%S>.org"
                                 ":PROPERTIES:
 :DIR:      %(replace-regexp-in-string (expand-file-name org-directory) \"\" (org-attach-dir-from-id (org-roam-node-id org-roam-capture--node)))
 :END:
