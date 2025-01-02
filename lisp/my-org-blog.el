@@ -73,7 +73,7 @@ updated: %s
   (beginning-of-line)
   (insert "<!-- more -->\n")
   ;; Drop the file:// added by pandoc
-  (replace-regexp-in-region "\\](file://" "](" (point-min)))
+  (replace-regexp-in-region "file:///assets" "/assets" (point-min)))
 
 ;; Candidate as a replacement for `kill-buffer', at least when used interactively.
 ;; For example: (define-key global-map [remap kill-buffer] 'kill-buffer-and-its-windows)
@@ -116,16 +116,16 @@ If untouch-updated-at is not nil, change the udpated_at keyword to now."
          (updated_at (if-let ((val (car (alist-get "UPDATED_AT" keywords nil nil #'equal)))
                               (skip skip-modify-updated-at))
                          val now))
-         (attach-dir (org-attach-dir))
-         (data-root (f-join (file-truename org-roam-directory) "data"))
-         (data-rel-dir (when attach-dir (string-replace (concat data-root "/") "" attach-dir)))
+         (attach-rel-dir (org-attach-dir))
+         (attach-abs-dir (f-join (file-truename org-roam-directory) attach-rel-dir))
+         (data-rel-dir (replace-regexp-in-string "data/" "" attach-rel-dir))
          (md-output-file-path (f-join my-org-blog-post-project-root "source" "_posts" (concat (replace-regexp-in-string "[0-9]\\{14\\}-" "" (file-name-base buffer-file-name)) ".md"))))
     (org-roam-set-keyword "published_at" published_at)
     (org-roam-set-keyword "updated_at" updated_at)
     ;; Metadata is ready.
     ;; Copy attachment data.
-    (when attach-dir
-      (copy-directory attach-dir (f-join my-org-blog-post-project-root "source" my-org-blog-assets-dir data-rel-dir) t t t))
+    (when attach-abs-dir
+      (copy-directory attach-abs-dir (f-join my-org-blog-post-project-root "source" my-org-blog-assets-dir data-rel-dir) t t t))
     ;; Process and convert org to md.
     (let ((original-buffer (current-buffer))
           (md-buffer (generate-new-buffer "*temp-md-output*" t)))
